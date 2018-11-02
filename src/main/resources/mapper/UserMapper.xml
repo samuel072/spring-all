@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kaiji.mapper.UserMapper">
+	<resultMap id="BaseResultMap" type="com.kaiji.model.User">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="ip_address" property="ipAddress"
+			jdbcType="VARCHAR" />
+		<result column="lock" property="lock" jdbcType="INTEGER" />
+		<result column="modify_date" property="modifyDate"
+			jdbcType="TIMESTAMP" />
+		<result column="create_date" property="createDate"
+			jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, name, phone, ip_address, lock, modify_date, create_date
+	</sql>
+	
+	<select id="findByFilter" resultMap="BaseResultMap" parameterType="HashMap">
+		select <include refid="Base_Column_List" /> from s_user as s where 1 = 1
+		<if test="name != null ">
+			and s.name = #{name}
+		</if>
+		<if test="id != null ">
+			and s.id = #{id}
+		</if>
+	</select>
+</mapper>
