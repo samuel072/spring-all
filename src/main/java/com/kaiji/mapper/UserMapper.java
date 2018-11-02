@@ -5,9 +5,7 @@ import java.util.Map;
 
 import com.kaiji.model.User;
 
-import tk.mybatis.mapper.common.BaseMapper;
-
-public interface UserMapper extends BaseMapper<User> {
+public interface UserMapper extends BaseDao<User> {
 
 	List<User> findByFilter(Map<String, String> filterMap);
 	

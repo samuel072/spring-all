@@ -7,17 +7,27 @@
 		<result column="phone" property="phone" jdbcType="VARCHAR" />
 		<result column="ip_address" property="ipAddress"
 			jdbcType="VARCHAR" />
-		<result column="lock" property="lock" jdbcType="INTEGER" />
+		<result column="is_lock" property="isLock" jdbcType="INTEGER" />
 		<result column="modify_date" property="modifyDate"
 			jdbcType="TIMESTAMP" />
 		<result column="create_date" property="createDate"
 			jdbcType="TIMESTAMP" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, name, phone, ip_address, lock, modify_date, create_date
+		id, name, phone, ip_address, is_lock, modify_date, create_date
 	</sql>
 	
 	<select id="findByFilter" resultMap="BaseResultMap" parameterType="HashMap">
+		select <include refid="Base_Column_List" /> from s_user as s where 1 = 1
+		<if test="name != null ">
+			and s.name = #{name}
+		</if>
+		<if test="id != null ">
+			and s.id = #{id}
+		</if>
+	</select>
+	
+	<select id="selectByFilter" resultMap="BaseResultMap" parameterType="HashMap">
 		select <include refid="Base_Column_List" /> from s_user as s where 1 = 1
 		<if test="name != null ">
 			and s.name = #{name}

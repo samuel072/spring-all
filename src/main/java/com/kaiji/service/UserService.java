@@ -7,8 +7,6 @@ import com.kaiji.model.User;
 
 public interface UserService extends BaseService<User, String> {
 
-	List<User> getAll();
-
 	List<User> findByFilter(Map<String, String> filterMap) throws Exception;
 
 }

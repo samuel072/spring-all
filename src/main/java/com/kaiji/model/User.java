@@ -10,7 +10,7 @@ public class User extends BaseModel {
 	private String name;
 	private String phone;
 	private String ipAddress;
-	private int lock;
+	private int isLock;
 
 	public String getName() {
 		return name;
@@ -36,11 +36,12 @@ public class User extends BaseModel {
 		this.ipAddress = ipAddress;
 	}
 
-	public int getLock() {
-		return lock;
+	public int getIsLock() {
+		return isLock;
 	}
 
-	public void setLock(int lock) {
-		this.lock = lock;
+	public void setIsLock(int isLock) {
+		this.isLock = isLock;
 	}
+	
 }

@@ -6,7 +6,7 @@
 	<artifactId>spring-security</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-security Maven Webapp</name>
+	<name>spring-all Maven Webapp</name>
 	<build>
 		<finalName>spring-security</finalName>
 		<plugins>
@@ -25,12 +25,23 @@
 					<configurationFile>src/main/resources/generactorConfig.xml</configurationFile>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<properties>
 		<security.version>4.1.3.RELEASE</security.version>
 		<spring.version>4.3.3.RELEASE</spring.version>
 		<tk.version>4.0.4</tk.version>
+		<page.version>5.1.7</page.version>
+		<mysql.version>5.1.6</mysql.version>
 	</properties>
 	<dependencies>
 		<!-- SpringFramework Start -->
@@ -179,7 +190,7 @@
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.2.3</version>
 		</dependency>
-		
+
 		<!-- mybatis 通用 -->
 		<dependency>
 			<groupId>tk.mybatis</groupId>
@@ -187,11 +198,18 @@
 			<version>${tk.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>${page.version}</version>
+		</dependency>
+
+
 		<!--MySQL Driver -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.6</version>
+			<version>${mysql.version}</version>
 		</dependency>
 
 		<dependency>
