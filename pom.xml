@@ -37,8 +37,8 @@
 		</plugins>
 	</build>
 	<properties>
-		<security.version>4.1.3.RELEASE</security.version>
-		<spring.version>4.3.3.RELEASE</spring.version>
+		<security.version>4.1.5.RELEASE</security.version>
+		<spring.version>4.3.18.RELEASE</spring.version>
 		<tk.version>4.0.4</tk.version>
 		<page.version>5.1.7</page.version>
 		<mysql.version>5.1.6</mysql.version>
