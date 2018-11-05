@@ -19,8 +19,8 @@ public class UserServiceImpl extends BaseServiceImpl<User, String> implements Us
 	@Resource
 	private UserMapper userMapper;
 
-	public List<User> findByFilter(Map<String, String> filterMap) throws Exception {
-		return userMapper.findByFilter(filterMap);
+	public List<User> findByFilter(Map<String, Object> filterMap) throws Exception {
+		return userMapper.selectByFilter(filterMap);
 	}
 	
 	

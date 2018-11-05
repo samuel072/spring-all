@@ -34,7 +34,7 @@ public class UserLoginController {
 			__logger.info("index getById");
 			User user = userService.getById(userList.get(0).getId());
 			System.out.println(user);
-			Map<String, String> filterMap = new HashMap<>();
+			Map<String, Object> filterMap = new HashMap<>();
 			filterMap.put("id", user.getId());
 			filterMap.put("name", user.getName());
 			List<User> filterList = userService.findByFilter(filterMap);

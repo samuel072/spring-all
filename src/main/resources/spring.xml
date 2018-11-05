@@ -5,12 +5,12 @@
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd 
-       http://www.springframework.org/schema/context 
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/aop 
+       http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd
-       http://www.springframework.org/schema/tx 
+       http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<!--获取数据库配置文件 -->
@@ -25,12 +25,12 @@
 		<property name="password" value="${jdbc.password}" />
 		<!-- 连接池保持最小连接数 -->
 		<property name="minPoolSize" value="2" />
-		<!-- 连接池保持最大连接数  默认15个-->
+		<!-- 连接池保持最大连接数 默认15个 -->
 		<property name="maxPoolSize" value="50" />
-		<!--最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->  
+		<!--最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
 		<property name="maxIdleTime" value="60" />
-		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->  
-        <property name="acquireIncrement" value="5"></property> 
+		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->
+		<property name="acquireIncrement" value="5"></property>
 	</bean>
 
 	<!--sqlsessionFactory bean -->
@@ -41,7 +41,7 @@
 		<!-- 显式指定Mapper文件位置，如果这里你不是按照我的目录结构来建设， 那你要自己调整mapper的路径,这里说的mapper不是指java类， 
 			而是指对应的xml文件，如果不懂，先去学一下Mybatis的基本知识 -->
 		<property name="mapperLocations" value="classpath:mapper/*.xml"></property>
-		
+
 		<!-- 插件配置 -->
 		<property name="plugins">
 			<array>
@@ -58,24 +58,20 @@
 		</property>
 	</bean>
 
-    <!--注册统一异常控制-->
-    <bean id="exception" class="com.kaiji.exhandler.CustomExceptionHandler"/>
-    
+	<!--注册统一异常控制 -->
+	<bean id="exception" class="com.kaiji.exhandler.CustomExceptionHandler" />
+
 	<!-- 扫描service层 -->
-    <context:component-scan base-package="com.kaiji.service"/>
+	<context:component-scan base-package="com.kaiji.service" />
 	<!--自动扫描mapper接口，并注入sqlsession,这里顺带一提，因为这里自动扫描注册了， 所以我们在mapper接口中，不需要使用注解@Repository去标注那些接口， 
 		同时也不要在配置文件中加入自动扫描context:component-scan的标签去扫描mapper包，否则会有矛盾 -->
 	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.kaiji.mapper" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSession" />
-		<property name="properties">
-			<value>notEmpty=true</value>
-		</property>
 	</bean>
 
 	<!-- 事务管理 -->
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager" />

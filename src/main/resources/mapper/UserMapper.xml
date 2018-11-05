@@ -26,14 +26,4 @@
 			and s.id = #{id}
 		</if>
 	</select>
-	
-	<select id="selectByFilter" resultMap="BaseResultMap" parameterType="HashMap">
-		select <include refid="Base_Column_List" /> from s_user as s where 1 = 1
-		<if test="name != null ">
-			and s.name = #{name}
-		</if>
-		<if test="id != null ">
-			and s.id = #{id}
-		</if>
-	</select>
 </mapper>

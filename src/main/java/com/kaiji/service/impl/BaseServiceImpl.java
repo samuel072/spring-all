@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 import com.github.pagehelper.ISelect;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.kaiji.mapper.BaseDao;
+import com.kaiji.exhandler.BaseDao;
 import com.kaiji.service.BaseService;
 
 public class BaseServiceImpl<T, ID extends Serializable> implements BaseService<T, ID> {
