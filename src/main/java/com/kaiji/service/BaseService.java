@@ -19,6 +19,18 @@ public interface BaseService<T, ID extends Serializable> {
 	List<T> getAll() throws Exception;
 	
 	/**
+	 * 根据条件查询列表
+	 * 
+	 * @param filterMap
+	 * 		条件
+	 * @return
+	 * 		T列表
+	 * @throws Exception
+	 * 		异常信息
+	 */
+	List<T> findByFilter(Map<String, Object> filterMap) throws Exception;
+	
+	/**
 	 * 分页查询， jdk1.8以上
 	 * 
 	 * @param filterMap

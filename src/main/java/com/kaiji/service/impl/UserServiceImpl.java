@@ -1,7 +1,5 @@
 package com.kaiji.service.impl;
 
-import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -18,10 +16,4 @@ public class UserServiceImpl extends BaseServiceImpl<User, String> implements Us
 
 	@Resource
 	private UserMapper userMapper;
-
-	public List<User> findByFilter(Map<String, Object> filterMap) throws Exception {
-		return userMapper.selectByFilter(filterMap);
-	}
-	
-	
 }

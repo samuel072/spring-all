@@ -26,7 +26,7 @@ public class SelectByFilter extends MapperTemplate {
 	        if (isCheckExampleEntityClass()) {
 	            sql.append(SqlHelper.exampleCheck(entityClass));
 	        }
-	        sql.append("<if test=\"distinct\">distinct</if>");
+	        sql.append("<if test=\"distinct != null\">distinct</if>");
 	        //支持查询指定列
 	        sql.append(SqlHelper.exampleSelectColumns(entityClass));
 	        sql.append(SqlHelper.fromTable(entityClass, tableName(entityClass)));
